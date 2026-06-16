@@ -37,33 +37,6 @@ const KEYBOARD_ROWS = [
     ["Control_L", "Super_L", "Alt_L", "space", "Alt_R", "Super_R", "Control_R"]
 ];
 
-// // Helper to check if a physical key cap has an active bind associated with it
-// const findBind = (keyLabel) => {
-//     const target = keyLabel.toLowerCase();
-//     return binds.find(b => {
-//         const bKey = b.key.toLowerCase();
-//         if (target === "space" && bKey === "") return true; 
-//         return bKey === target;
-//     });
-// };
-
-// const findBind = (keyLabel) => {
-//     const target = keyLabel.toLowerCase();
-    
-//     return binds.find(b => {
-//         // 1. First, strictly check if this bind ONLY uses the SUPER modifier
-//         if (b.modmask !== SUPERModKey) {
-//             return false; // Not a basic SUPER bind, skip to the next item
-//         }
-
-//         // 2. If it is a basic SUPER bind, check if the key matches
-//         const bKey = b.key.toLowerCase();
-//         if (target === "space" && bKey === "") return true; 
-        
-//         return bKey === target;
-//     });
-// };
-
 const findBind = (keyLabel) => {
     const target = keyLabel.toLowerCase();
     
@@ -74,14 +47,6 @@ const findBind = (keyLabel) => {
         // if (target === "space" && bKey === "") return true;
         return bKey === target;
     });
-
-    // // --- DEBUG PRINT START ---
-    // // Only print when looking at a specific key (e.g., "q") so your terminal doesn't get flooded
-    // if (target === "c") {
-    //     print(`--- Binds found for key [C] ---`);
-    //     print(JSON.stringify(matchingKeys, null, 2));
-    // }
-    // // --- DEBUG PRINT END ---
 
     // 2. Out of those matching physical keys, look for the ONE that matches our exact modmask
     return matchingKeys.find(b => b.modmask === SUPERModKey);
