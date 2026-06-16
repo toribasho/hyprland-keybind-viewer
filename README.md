@@ -1,7 +1,7 @@
 ### Hyprland bind viewer
-1. Clone `app` folder into ~/.config/ags 
+1. Clone repo
 2. install `aylurs-gtk-shell` from AUR
-3. Run: `ags run ~/.config/ags/app/app.js`
+3. Run: `ags run <your-path-here>/app/app.js`
 
 #### Description
 
